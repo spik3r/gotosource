@@ -6,8 +6,10 @@
 		"type": "git",
 		"url": "git@github.com:spik3r/gotosource.git"
 	  },
+	"license": "MIT",
+	"publisher": "Kaaiii",
 	"author": "Kai Tait (https://www.kaitait.com)",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.64.0"
 	},
@@ -15,7 +17,8 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:gotosource.goToFile"
+        "onCommand:gotosource.goToFile",
+        "onCommand:gotosource.searchFile"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -23,7 +26,10 @@
 			{
 				"command": "gotosource.goToFile",
 				"title": "goToFile"
-				
+			},
+			{
+				"command": "gotosource.searchFile",
+				"title": "searchFile"
 			}
 		],
 		"keybindings": [
@@ -31,6 +37,12 @@
 				"command": "gotosource.goToFile",
 				"key": "ctrl+f12",
 				"mac": "cmd+f12"
+				
+			},
+			{
+				"command": "gotosource.searchFile",
+				"key": "alt+f12",
+				"mac": "alt+f12"
 				
 			}
 		]

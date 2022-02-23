@@ -12,15 +12,23 @@ To change the keybinding: open  `keybindings.json` and update the setting below
 {
     "key": "cmd+f12",
     "command": "gotosource.goToFile"
+},
+{
+    "key": "alt+f12",
+    "command": "gotosource.searchFile"
 }
 ```
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+goToFile doesn't seem to work on monorepo projects
 
 ## Release Notes
 
 ### 0.0.1
 
 Initial release... experimental
+
+### 0.0.2
+
+... still experimental
