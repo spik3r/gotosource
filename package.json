@@ -1,7 +1,12 @@
 {
   "name": "gotosource",
 	"displayName": "goToSource",
-	"description": "ignores .d.ts files ",
+	"description": "ignores .d.ts files",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:spik3r/gotosource.git"
+	  },
+	"author": "Kai Tait (https://www.kaitait.com)",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.64.0"
@@ -10,19 +15,22 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:gotosource.helloWorld",
         "onCommand:gotosource.goToFile"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "gotosource.helloWorld",
-				"title": "Hello World"
-			},
-			{
 				"command": "gotosource.goToFile",
 				"title": "goToFile"
+				
+			}
+		],
+		"keybindings": [
+			{
+				"command": "gotosource.goToFile",
+				"key": "ctrl+f12",
+				"mac": "cmd+f12"
 				
 			}
 		]
