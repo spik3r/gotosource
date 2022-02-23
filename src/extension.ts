@@ -27,11 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
 		let highlighted = editor?.document.getText(wordRange);
 
 		await commands.executeCommand('workbench.action.findInFiles',  {
-			"query": `[\\s](${highlighted})`,   
-			"isRegexp": true,
-			// "query": highlighted,   
-			"triggerSearch": true,         
-			"focusResults": true,
+			"query": highlighted,   
 			"filesToExclude": '*.d.ts',
 			"filesToInclude": '*.ts',
 			"useExcludeSettingsAndIgnoreFiles": true,           
