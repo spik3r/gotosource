@@ -1,9 +1,16 @@
 # Change Log
+### 0.0.4
 
-All notable changes to the "gotosource" extension will be documented in this file.
+fixed issue with larger monorepo project using regex and setTimeout
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+### 0.0.3
 
-## [Unreleased]
+... trying findInFiles without regex
 
-- Initial release
+### 0.0.2
+
+... still experimental
+### 0.0.1
+
+Initial release... experimental
+

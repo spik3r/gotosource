@@ -9,15 +9,18 @@ export function activate(context: vscode.ExtensionContext) {
 		let wordRange = cursorPosition ? editor?.document.getWordRangeAtPosition(cursorPosition) : undefined;
 		let highlighted = editor?.document.getText(wordRange);
 
-		 await commands.executeCommand('editor.action.goToTypeDefinition', {
-			"query": `[\\s](${highlighted})`,   
-			"isRegexp": true,   
-			"triggerSearch": true,          
+		await commands.executeCommand('workbench.action.findInFiles', {
+			"query": `[\\s](${highlighted})`,
+			"isRegexp": true,
+			"triggerSearch": true,
 			"focusResults": true,
 			"filesToExclude": '*.d.ts',
 			"filesToInclude": '*.ts',
-			"useExcludeSettingsAndIgnoreFiles": true,           
+			"useExcludeSettingsAndIgnoreFiles": true,
 		  });
+      setTimeout(async function(){
+        await commands.executeCommand('search.action.focusNextSearchResult');
+    }, 500);
 	});
 
 	const searchFile = vscode.commands.registerCommand('gotosource.searchFile', async () => {

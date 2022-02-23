@@ -35,3 +35,6 @@ Initial release... experimental
 ### 0.0.3
 
 ... trying findInFiles without regex
+### 0.0.4
+
+fixed issue with larger monorepo project
