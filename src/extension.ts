@@ -11,7 +11,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		await commands.executeCommand('workbench.action.findInFiles', {
 			"query": `[\\s](${highlighted})`,
-			"isRegexp": true,
+			"isRegex": true,
 			"triggerSearch": true,
 			"focusResults": true,
 			"filesToExclude": '*.d.ts',

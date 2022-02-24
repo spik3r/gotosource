@@ -1,1 +1,90 @@
-(()=>{"use strict";var e={496:e=>{e.exports=require("vscode")}},t={};function o(s){var n=t[s];if(void 0!==n)return n.exports;var i=t[s]={exports:{}};return e[s](i,i.exports,o),i.exports}var s={};(()=>{var e=s;Object.defineProperty(e,"__esModule",{value:!0}),e.deactivate=e.activate=void 0;const t=o(496),n=o(496);e.activate=function(e){const o=t.commands.registerCommand("gotosource.goToFile",(async()=>{const e=t.window.activeTextEditor;let o=e?.selection.start,s=o?e?.document.getWordRangeAtPosition(o):void 0,i=e?.document.getText(s);await n.commands.executeCommand("workbench.action.findInFiles",{query:`[\\s](${i})`,isRegexp:!0,triggerSearch:!0,focusResults:!0,filesToExclude:"*.d.ts",filesToInclude:"*.ts",useExcludeSettingsAndIgnoreFiles:!0}),setTimeout((async function(){await n.commands.executeCommand("search.action.focusNextSearchResult")}),500)})),s=t.commands.registerCommand("gotosource.searchFile",(async()=>{const e=t.window.activeTextEditor;let o=e?.selection.start,s=o?e?.document.getWordRangeAtPosition(o):void 0,i=e?.document.getText(s);await n.commands.executeCommand("workbench.action.findInFiles",{query:i,filesToExclude:"*.d.ts",filesToInclude:"*.ts",useExcludeSettingsAndIgnoreFiles:!0})}));e.subscriptions.push(o),e.subscriptions.push(s)},e.deactivate=function(){}})(),module.exports=s})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ([
+/* 0 */,
+/* 1 */
+/***/ ((module) => {
+
+module.exports = require("vscode");
+
+/***/ })
+/******/ 	]);
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+var exports = __webpack_exports__;
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.deactivate = exports.activate = void 0;
+const vscode = __webpack_require__(1);
+const vscode_1 = __webpack_require__(1);
+function activate(context) {
+    const goToFile = vscode.commands.registerCommand('gotosource.goToFile', async () => {
+        const editor = vscode.window.activeTextEditor;
+        let cursorPosition = editor?.selection.start;
+        let wordRange = cursorPosition ? editor?.document.getWordRangeAtPosition(cursorPosition) : undefined;
+        let highlighted = editor?.document.getText(wordRange);
+        await vscode_1.commands.executeCommand('workbench.action.findInFiles', {
+            "query": `[\\s](${highlighted})`,
+            "isRegex": true,
+            "triggerSearch": true,
+            "focusResults": true,
+            "filesToExclude": '*.d.ts',
+            "filesToInclude": '*.ts',
+            "useExcludeSettingsAndIgnoreFiles": true,
+        });
+        setTimeout(async function () {
+            await vscode_1.commands.executeCommand('search.action.focusNextSearchResult');
+        }, 500);
+    });
+    const searchFile = vscode.commands.registerCommand('gotosource.searchFile', async () => {
+        const editor = vscode.window.activeTextEditor;
+        let cursorPosition = editor?.selection.start;
+        let wordRange = cursorPosition ? editor?.document.getWordRangeAtPosition(cursorPosition) : undefined;
+        let highlighted = editor?.document.getText(wordRange);
+        await vscode_1.commands.executeCommand('workbench.action.findInFiles', {
+            "query": highlighted,
+            "filesToExclude": '*.d.ts',
+            "filesToInclude": '*.ts',
+            "useExcludeSettingsAndIgnoreFiles": true,
+        });
+    });
+    context.subscriptions.push(goToFile);
+    context.subscriptions.push(searchFile);
+}
+exports.activate = activate;
+function deactivate() { }
+exports.deactivate = deactivate;
+
+})();
+
+module.exports = __webpack_exports__;
+/******/ })()
+;
+//# sourceMappingURL=extension.js.map
